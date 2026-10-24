@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>Edit  Details</h2>
+
+<form method="post">
+    {% csrf_token %}
+
+    Roll Number<br>
+    <input type="text" name="roll"
+           value="{{ student.roll }}" readonly><br><br>
+
+    Name<br>
+    <input type="text" name="name"
+           value="{{ student.name }}" required><br><br>
+
+    Age<br>
+    <input type="number" name="age"
+           value="{{ student.age }}" required><br><br>
+
+    Course<br>
+    <input type="text" name="course"
+           value="{{ student.course }}" required><br><br>
+
+    <button type="submit">Update Details</button>
+</form>
+
+<a href="{% url 'view_student' %}">Back to Students</a>
+
+{% endblock %}
